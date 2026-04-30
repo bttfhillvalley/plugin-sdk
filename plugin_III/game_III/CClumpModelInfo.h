@@ -10,6 +10,7 @@
 #include "CBaseModelInfo.h"
 #include "RenderWare.h"
 #include "RwObjectNameIdAssocation.h"
+#include "NodeName.h"
 
 struct PLUGIN_API FrameSearchData {
     char const *name;
@@ -43,11 +44,23 @@ public:
     SUPPORTED_10EN_11EN_STEAM static RwFrame *GetFrameFromId(RpClump *clump, int id);
     SUPPORTED_10EN_11EN_STEAM static RpAtomic *SetAtomicRendererCB(RpAtomic *atomic, void *data);
 
+    static RwFrame* FindFrameFromNameCB_Fixed(RwFrame* frame, void* data) {
+        auto searchData = reinterpret_cast<FrameSearchData*>(data);
+        if (!_stricmp(GetFrameNodeName(frame), searchData->name)) {
+            searchData->result = frame;
+            return nullptr;
+        }
+        RwFrameForAllChildren(frame, FindFrameFromNameCB_Fixed, data);
+        if (searchData->result)
+            return nullptr;
+        return frame;
+    }
+
     static inline RwFrame *GetFrameFromName(RpClump *clump, char const *name) {
         FrameSearchData searchData;
         searchData.name = name;
         searchData.result = nullptr;
-        RwFrameForAllChildren(reinterpret_cast<RwFrame *>(clump->object.parent), FindFrameFromNameCB, &searchData);
+        RwFrameForAllChildren(reinterpret_cast<RwFrame *>(clump->object.parent), FindFrameFromNameCB_Fixed, &searchData);
         return searchData.result;
     }
 };

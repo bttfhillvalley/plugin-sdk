@@ -56,7 +56,7 @@ public:
         unsigned char bImBeingRendered : 1;
         unsigned char bEntUFlag27 : 1;
         unsigned char bEntUFlag28 : 1;
-        unsigned char bEntUFlag29 : 1;
+        unsigned char bDrawLast : 1;
         unsigned char bEntUFlag30 : 1;
         unsigned char bEntUFlag31 : 1;
         unsigned char bEntUFlag32 : 1;
@@ -65,7 +65,7 @@ public:
         unsigned char bDontCastShadowsOn : 1;
         unsigned char bEntUFlag35 : 1;
         unsigned char bIsStaticWaitingForCollision : 1;
-        unsigned char bEntUFlag37 : 1;
+        unsigned char bDontStream : 1;
         unsigned char bEntUFlag38 : 1;
         unsigned char bEntUFlag39 : 1;
         unsigned char bEntUFlag40 : 1;

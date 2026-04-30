@@ -23,6 +23,10 @@ public:
         FromRwV3d(right);
     }
 
+    CVector operator-() const {
+        return CVector(-x, -y, -z);
+    }
+
     // Returns length of vector
     float Magnitude();
 

@@ -53,7 +53,7 @@ public:
 	int field_DC;
 	int field_E0;
 	int field_E4;
-	int field_E8;
+	int m_nUpsideDownCounter;
 	int field_EC;
     unsigned int m_nVehicleTimeOnTwoWheels;
     float m_fVehicleDistanceOnTwoWheels;

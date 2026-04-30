@@ -21,6 +21,21 @@ public:
     float fPrevAngle;
     float fVelAngle;
     CVector vecVelocity;
+
+    float RetAngleWhenOpen() {
+        if (abs(fAngleInPosOne) < abs(fAngleInPosTwo))
+            return fAngleInPosTwo;
+        else
+            return fAngleInPosOne;
+    }
+
+    float GetAngleOpenRatio()
+    {
+        float open = RetAngleWhenOpen();
+        if (open == 0.0f)
+            return 0.0f;
+        return fAngle / open;
+    }
 };
 
 VALIDATE_SIZE(CDoor, 0x24);

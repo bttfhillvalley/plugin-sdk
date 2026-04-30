@@ -8,7 +8,9 @@ Do not delete this comment block. Respect others' work!
 
 #include "PluginBase.h"
 #include "CColBox.h"
+#include "CColLine.h"
 #include "CColSphere.h"
+#include "CColPoint.h"
 
 class CColModel {
 public:
@@ -24,9 +26,9 @@ private:
     char _pad31[3];
 public:
     CColSphere *m_pSpheres;
-    void *m_pLines;
+    CColLine *m_pLines;
     CColBox *m_pBoxes;
-    void *m_pVertices;
+    CColPoint *m_pVertices;
     void *m_pTriangles;
     void *m_pTrianglePlanes;
 

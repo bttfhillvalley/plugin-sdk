@@ -47,6 +47,12 @@ public:
     void SetRotateXOnly(float angle);
     void SetTranslateOnly(float x, float y, float z);
     void SetTranslate(float x, float y, float z);
+    void Translate(float x, float y, float z) {
+        pos.x += x;
+        pos.y += y;
+        pos.z += z;
+    }
+    void Translate(const CVector& trans) { Translate(trans.x, trans.y, trans.z); }
     void SetScale(float factor);
     void ResetOrientation();
     void SetUnity();

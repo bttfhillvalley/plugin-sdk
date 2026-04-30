@@ -13,10 +13,11 @@ class CColLine
 {
 public:
     CVector m_vStart;
-    char gapC[4];
+    int pad0;
     CVector m_vEnd;
+    int pad1;
         
     CColLine(CVector const& start, CVector const& end);
 };
 
-VALIDATE_SIZE(CColLine, 0x1C);
+VALIDATE_SIZE(CColLine, 0x20);

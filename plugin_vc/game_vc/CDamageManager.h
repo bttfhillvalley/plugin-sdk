@@ -35,13 +35,13 @@ enum tComponent {
 };
 
 enum tComponentGroup {
-    COMPGROUP_PANEL = 0,
+    COMPGROUP_BUMPER = 0,
     COMPGROUP_WHEEL = 1,
     COMPGROUP_DOOR = 2,
     COMPGROUP_BONNET = 3,
     COMPGROUP_BOOT = 4,
-    COMPGROUP_LIGHT = 5,
-    COMPGROUP_NA = 6
+    COMPGROUP_PANEL = 5,
+    COMPGROUP_DEFAULT = 6
 };
 
 enum eWheels {

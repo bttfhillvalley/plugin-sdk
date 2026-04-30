@@ -127,8 +127,8 @@ public:
     unsigned char m_nWheelsOnGround;
     char field_962;
     char field_963;
-    float field_964;
-    int field_968[4];
+    float m_fGasPedalAudio;
+    int m_aWheelState[4];
     void *pNitroParticle[2];
     char field_980;
     char field_981;

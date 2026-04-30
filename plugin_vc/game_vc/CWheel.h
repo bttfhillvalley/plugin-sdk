@@ -12,9 +12,16 @@ Do not delete this comment block. Respect others' work!
 class CWheel {
 public:
     CVector vecWheelPos;
-    char __p000C[4];
+    //char __p000C[4];
+    int pad1;
     CVector vecWheelAngle;
-    char __p001C[12];
+    int pad2;
+    char surfaceA;
+    char pieceA;
+    char surfaceB;
+    char pieceB;
+    float depth;
+    //char __p001C[12];
 };
 
 VALIDATE_SIZE(CWheel, 0x28);

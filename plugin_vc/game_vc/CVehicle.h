@@ -148,7 +148,7 @@ public:
         unsigned char b30 : 1;
         unsigned char b31 : 1;
         unsigned char b32 : 1;
-        unsigned char b33 : 1;
+        unsigned char bIsDrowning : 1;
         unsigned char bCarTiresInvulnerable : 1;
         unsigned char b35 : 1;
         unsigned char b36 : 1;

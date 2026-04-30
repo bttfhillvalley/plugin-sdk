@@ -28,6 +28,10 @@ public:
         FromRwV3d(right);
     }
 
+    CVector operator-() const {
+        return CVector(-x, -y, -z);
+    }
+
     inline void Cross(CVector &a, CVector &b) {
         this->x = b.z * a.y - a.z * b.y;
         this->y = a.z * b.x - a.x * b.z;
@@ -114,4 +118,14 @@ inline CVector operator*(float multiplier, const CVector& vec) {
 inline float DistanceBetweenPoints(const CVector &pointOne, const CVector &pointTwo) {
     CVector diff = pointTwo - pointOne;
     return diff.Magnitude();
+}
+
+inline float DotProduct(const CVector& v1, const CVector& v2)
+{
+    return v1.x * v2.x + v1.y * v2.y + v1.z * v2.z;
+}
+
+inline CVector CrossProduct(const CVector& v1, const CVector& v2)
+{
+    return CVector(v1.y * v2.z - v1.z * v2.y, v1.z * v2.x - v1.x * v2.z, v1.x * v2.y - v1.y * v2.x);
 }

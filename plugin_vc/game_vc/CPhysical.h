@@ -55,6 +55,11 @@ public:
     void ProcessEntityCollision(CEntity* arg0, CColPoint* arg1);
 
     //funcs
+    void SetCenterOfMass(float x, float y, float z) {
+        m_vecCentreOfMass.x = x;
+        m_vecCentreOfMass.y = y;
+        m_vecCentreOfMass.z = z;
+    }
 
     static void PlacePhysicalRelativeToOtherPhysical(CPhysical* phys1, CPhysical* phys2, CVector offset);
     void RemoveRefsToEntity(CEntity* entity);
@@ -77,10 +82,14 @@ public:
     void ApplyAirResistance();
     void ApplyMoveSpeed();
     void ApplyTurnForce(float arg0, float arg1, float arg2, float arg3, float arg4, float arg5);
+    void ApplyTurnForce(const CVector& j, const CVector& p) { ApplyTurnForce(j.x, j.y, j.z, p.x, p.y, p.z); }
     void ApplyMoveForce(float x, float y, float z);
+    void ApplyMoveForce(const CVector& j) { ApplyMoveForce(j.x, j.y, j.z); }
     void RemoveFromMovingList();
     void AddToMovingList();
     void RemoveAndAdd();
+    CVector GetSpeed(const CVector& r) { return m_vecMoveSpeed + m_vecFrictionMoveForce + CrossProduct(m_vecFrictionTurnForce + m_vecTurnSpeed, r);  }
+    CVector GetSpeed(void) { return GetSpeed(CVector(0.0f, 0.0f, 0.0f)); }
 
     CPhysical() = delete;
     CPhysical(const CPhysical &) = delete;

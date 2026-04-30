@@ -28,6 +28,10 @@ public:
         FromRwV3d(right);
     }
 
+    CVector operator-() const {
+        return CVector(-x, -y, -z);
+    }
+
     inline void Cross(CVector &a, CVector &b) {
         this->x = b.z * a.y - a.z * b.y;
         this->y = a.z * b.x - a.x * b.z;

@@ -48,19 +48,23 @@ public:
     CDoor m_aDoors[6];
     RwFrame *m_aCarNodes[20];
     CWheel stWheels[4];
-    int fWheelSuspDist[4];
-    int fWheelSuspDistSoft[4];
-    int fWheelContactRate[4];
-    char __p04B0[28];
-    int fWheelTotalRot[4];
-    int fWheelRot[4];
-    char __p04EC[4];
+    float fWheelSuspDist[4];
+    float fWheelSuspDistSoft[4];
+    float fWheelContactRate[4];
+    char __p04B0[27];
+    float fWheelRot[4];
+    float fWheelPos[4];
+    float fWheelSpeed[4];
+    char m_autoUnused;
+    /*char __p04EC[4];
     int fNegSpeed;
-    char __p04F4[9];
+    char __p04F4[9];*/
     char bfFlagsX;
-    char __p04FE[46];
-    int fWheelAngleMul;
-    int fAIGripMultiplier;
+    char __p04FE[14];
+    float fSuspSpringLength[4];
+    float fSuspLineLength[4];
+    float fWheelAngleMul;
+    float fAIGripMultiplier;
     char __p0534[120];
     int fSpecialWepRotH;
     int fSpecialWepRotV;
@@ -70,7 +74,7 @@ public:
     char nWheelsOnGround;
     char nRearWheelsOnGround;
     char bytePrevRearWheelsOnGround;
-    char __f05C3;
+    char fGasPedalAudio;
     int fSkidMarkDensity;
     int nTireFriction[4];
 
